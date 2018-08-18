@@ -5,6 +5,9 @@
  * Date: 2018/7/6
  * Time: 17:14
  */
-Route::resource(':version/wechatgroup','api/:version.Wechatgroup');
-Route::rule(':version/user/auth','api/:version.User/auth');
-Route::rule(':version/user/verification','api/:version.User/verification');
+
+Route::group(':version', function () {
+    Route::resource('wechatgroup','api/:version.Wechatgroup');
+    Route::rule('user/auth','api/:version.User/auth')->allowCrossDomain();
+    Route::get('user/login','api/:version.User/login')->allowCrossDomain();
+});

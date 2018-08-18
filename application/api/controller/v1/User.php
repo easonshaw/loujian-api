@@ -13,6 +13,10 @@ use think\facade\Config;
 
 class User extends Oauth
 {
+    /**
+     *
+     * @return \think\response\Json
+     */
     public function auth()
     {
         //TODO 加入登录验证逻辑, 拿到OPENID/MOBILE可以把ACCESS_TOKEN存入REDIS
@@ -25,14 +29,10 @@ class User extends Oauth
         return json(['access_token' => $access_token, 'expire' => $this->expire]);
     }
 
-    public function verification()
+    public function login()
     {
         $result = $this->parseToken();
         return json($result, $result['code']);
     }
 
-    public function login()
-    {
-
-    }
 }
