@@ -1,0 +1,25 @@
+<?php
+//创建可抛出一个异常的函数
+function checkNum($number)
+{
+    if($number>1)
+    {
+        throw new Exception("Value must be 1 or below", 401);
+    }
+    return true;
+}
+
+//在 "try" 代码块中触发异常
+try
+{
+    checkNum(3);
+    //If the exception is thrown, this text will not be shown
+    echo 'If you see this, the number is 1 or below';
+}
+
+//捕获异常
+catch(Exception $e)
+{
+    echo 'Message: ' .$e->getMessage(). ' Code:' .$e->getCode();
+}
+?>
