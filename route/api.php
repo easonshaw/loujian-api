@@ -7,7 +7,6 @@
  */
 
 Route::group(':version', function () {
-    Route::resource('wechatgroup','api/:version.Wechatgroup');
-    Route::rule('user/auth','api/:version.User/auth')->allowCrossDomain();
-    Route::get('user/login','api/:version.User/login')->allowCrossDomain();
+    Route::get('user/auth','api/:version.User/auth')->allowCrossDomain();
+    Route::post('user/login','api/:version.User/login')->allowCrossDomain();
 });
